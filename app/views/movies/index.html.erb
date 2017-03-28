@@ -19,7 +19,13 @@
       <% @movies.each do |movie| %>
       <tr>
         <td><%= movie.title %></td>
-        <td><%= movie.director.name %></td>
+        <td>
+          <% if movie.director.present? %>
+            <a href="/directors/<%= movie.director.id %>">
+              <%= movie.director.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= movie.actor_id %></td>
         <td><%= movie.description %></td>
         <td>
